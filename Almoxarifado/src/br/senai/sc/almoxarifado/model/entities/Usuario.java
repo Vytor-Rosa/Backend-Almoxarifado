@@ -1,6 +1,6 @@
 package br.senai.sc.almoxarifado.model.entities;
 
-import br.senai.sc.almoxarifado.model.Factory.UsuarioFactory;
+import br.senai.sc.almoxarifado.model.Factory.*;
 
 public class Usuario {
     private Integer idUsuario;

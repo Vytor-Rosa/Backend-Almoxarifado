@@ -1,7 +1,7 @@
 package br.senai.sc.almoxarifado.controller;
 
 import br.senai.sc.almoxarifado.model.entities.Localizacao;
-import br.senai.sc.almoxarifado.model.service.LocalizacaoService;
+import br.senai.sc.almoxarifado.model.service.*;
 
 import java.sql.SQLException;
 

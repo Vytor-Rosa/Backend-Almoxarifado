@@ -1,7 +1,7 @@
 package br.senai.sc.almoxarifado.controller;
 
 import br.senai.sc.almoxarifado.model.entities.Produto;
-import br.senai.sc.almoxarifado.model.service.ProdutoService;
+import br.senai.sc.almoxarifado.model.service.*;
 
 import java.sql.Blob;
 import java.sql.SQLException;

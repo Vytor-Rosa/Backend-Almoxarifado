@@ -1,6 +1,6 @@
 package br.senai.sc.almoxarifado.model.entities;
 
-import br.senai.sc.almoxarifado.model.Factory.LocalizacaoFactory;
+import br.senai.sc.almoxarifado.model.Factory.*;
 
 public class Localizacao {
     private Integer idLocalizacao;

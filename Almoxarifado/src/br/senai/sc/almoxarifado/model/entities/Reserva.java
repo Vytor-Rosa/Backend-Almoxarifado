@@ -1,6 +1,6 @@
 package br.senai.sc.almoxarifado.model.entities;
 
-import br.senai.sc.almoxarifado.model.Factory.ReservaFactory;
+import br.senai.sc.almoxarifado.model.Factory.*;
 
 public class Reserva {
     private Integer idReserva;

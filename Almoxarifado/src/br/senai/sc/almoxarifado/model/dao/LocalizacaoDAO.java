@@ -1,7 +1,7 @@
 package br.senai.sc.almoxarifado.model.dao;
 
-import br.senai.sc.almoxarifado.model.Factory.ConexaoFactory;
-import br.senai.sc.almoxarifado.model.entities.Localizacao;
+import br.senai.sc.almoxarifado.model.Factory.*;
+import br.senai.sc.almoxarifado.model.entities.*;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

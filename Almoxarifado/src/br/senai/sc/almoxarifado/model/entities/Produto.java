@@ -1,6 +1,6 @@
 package br.senai.sc.almoxarifado.model.entities;
 
-import br.senai.sc.almoxarifado.model.Factory.ProdutoFactory;
+import br.senai.sc.almoxarifado.model.Factory.*;
 
 import java.sql.Blob;
 

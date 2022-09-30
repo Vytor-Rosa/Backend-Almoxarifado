@@ -1,7 +1,7 @@
 package br.senai.sc.almoxarifado.controller;
 
 import br.senai.sc.almoxarifado.model.entities.Usuario;
-import br.senai.sc.almoxarifado.model.service.UsuarioService;
+import br.senai.sc.almoxarifado.model.service.*;
 
 import java.sql.SQLException;
 
