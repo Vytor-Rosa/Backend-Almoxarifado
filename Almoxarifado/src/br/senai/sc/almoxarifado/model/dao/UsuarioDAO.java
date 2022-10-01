@@ -5,11 +5,16 @@ import br.senai.sc.almoxarifado.model.entities.*;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.HashSet;
+import java.util.Set;
 
 public class UsuarioDAO {
 
     private Connection connection;
+    Set<Usuario> listaUsuarios = new HashSet<>();
+    Set<Usuario> listaProfessores = new HashSet<>();
 
     public UsuarioDAO() {
         this.connection = new ConexaoFactory().conectaBD();
@@ -33,4 +38,45 @@ public class UsuarioDAO {
             throw new RuntimeException("Erro na preparação");
         }
     }
+
+    public Set<Usuario> buscarTodos() throws SQLException {
+        String sql = "select * from usuario";
+        try(PreparedStatement statement = connection.prepareStatement(sql)){
+            try(ResultSet resultSet = statement.executeQuery()){
+                while (resultSet.next()){
+                    listaUsuarios.add(extrairObjeto(resultSet));
+                }
+                return listaUsuarios;
+            }
+        }
+    }
+
+    public Set<Usuario> buscarPorCargo(String cargo) throws SQLException {
+        String sql = "select * from usuario where cargo = ?";
+        try(PreparedStatement statement = connection.prepareStatement(sql)){
+            statement.setString(1, cargo);
+            try(ResultSet resultSet = statement.executeQuery()){
+                while (resultSet.next()){
+                    listaProfessores.add(extrairObjeto(resultSet));
+                }
+                return listaProfessores;
+            }
+        }
+    }
+
+    private Usuario extrairObjeto(ResultSet resultSet) {
+        try{
+            return new UsuarioFactory().getUsuario(
+                    resultSet.getInt("codigo"),
+                    resultSet.getInt("matricula"),
+                    resultSet.getString("email"),
+                    resultSet.getString("senha"),
+                    resultSet.getString("nome"),
+                    resultSet.getString("cargo")
+            );
+        }catch (Exception exception){
+            throw new RuntimeException();
+        }
+    }
+
 }

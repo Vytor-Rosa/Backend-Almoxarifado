@@ -8,8 +8,10 @@ import java.util.Scanner;
 public class Main {
     static Scanner tec = new Scanner(System.in);
     public static void main(String[] args) throws SQLException {
-        cadastrarProduto();
+        buscarPorCargo();
     }
+
+    static UsuarioController usuarioController = new UsuarioController();
 
     public static void cadastrarUsuario() throws SQLException {
         System.out.println("codigo: ");
@@ -25,8 +27,18 @@ public class Main {
         System.out.println("cargo: ");
         String cargo = tec.next();
 
-        UsuarioController controller = new UsuarioController();
-        controller.cadastrar(codigo, matricula, nome, email, senha, cargo);
+
+        usuarioController.cadastrar(codigo, matricula, nome, email, senha, cargo);
+    }
+
+    public static void buscarTodosUsuarios() throws SQLException{
+        System.out.println(usuarioController.buscarTodos());
+    }
+
+    public static void buscarPorCargo() throws SQLException{
+        System.out.println("cargo: ");
+        String cargo = tec.next();
+        System.out.println(usuarioController.buscarPorCargo(cargo));
     }
 
     public static void cadastrarProduto() throws SQLException {
@@ -44,12 +56,17 @@ public class Main {
         int tipo = tec.nextInt();
         boolean descartavel = false;
         switch (tipo){
-            case 1->{descartavel = true;}
-            case 2->{descartavel = false;}
+            case 1:
+                descartavel = true;
+                break;
+            case 2:
+                descartavel = false;
+                break;
         }
         System.out.println("detalhes: ");
         String detalhes = tec.next();
-        Blob imagem = null;
+        System.out.println("imagem: ");
+        String imagem = tec.next();
 
         ProdutoController controller = new ProdutoController();
         controller.cadastrar(codigo, nome, caracteristica, quantidade, ultimaRetirada, descartavel, detalhes, imagem);

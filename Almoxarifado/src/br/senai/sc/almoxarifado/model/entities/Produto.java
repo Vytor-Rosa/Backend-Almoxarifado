@@ -12,13 +12,13 @@ public class Produto {
     private String ultimaRetirada;
     private boolean descartavel;
     private String detalhes;
-    private Blob imagem;
+    private String imagem;
 
-    public static Produto cadastrar(Integer idProduto, String nome, String caracteristica, Integer quantidade, String ultimaRetirada, boolean descartavel, String detalhes, Blob imagem){
+    public static Produto cadastrar(Integer idProduto, String nome, String caracteristica, Integer quantidade, String ultimaRetirada, boolean descartavel, String detalhes, String imagem){
         return new ProdutoFactory().getProduto(idProduto, nome, caracteristica, quantidade, ultimaRetirada, descartavel, detalhes, imagem);
     }
 
-    public Produto(Integer idProduto, String nome, String caracteristica, Integer quantidade, String ultimaRetirada, boolean descartavel, String detalhes, Blob imagem) {
+    public Produto(Integer idProduto, String nome, String caracteristica, Integer quantidade, String ultimaRetirada, boolean descartavel, String detalhes, String imagem) {
         this.idProduto = idProduto;
         this.nome = nome;
         this.caracteristica = caracteristica;
@@ -85,11 +85,11 @@ public class Produto {
         this.detalhes = detalhes;
     }
 
-    public Blob getImagem() {
+    public String getImagem() {
         return imagem;
     }
 
-    public void setImagem(Blob imagem) {
+    public void setImagem(String imagem) {
         this.imagem = imagem;
     }
 }

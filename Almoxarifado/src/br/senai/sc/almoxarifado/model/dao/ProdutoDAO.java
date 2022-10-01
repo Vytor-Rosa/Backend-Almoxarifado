@@ -1,5 +1,6 @@
 package br.senai.sc.almoxarifado.model.dao;
 
+import br.senai.sc.almoxarifado.model.Factory.ConexaoFactory;
 import br.senai.sc.almoxarifado.model.entities.*;
 
 import java.sql.Connection;
@@ -12,6 +13,10 @@ public class ProdutoDAO {
     private static final Set<Produto> listaProdutos = new HashSet<>();
     private Connection connection;
 
+    public ProdutoDAO() {
+        this.connection = new ConexaoFactory().conectaBD();
+    }
+
     public void cadastrar(Produto produto) throws SQLException{
         String sql = "insert into produto(codigo, nome, caracteristica, quantidade, ultima_retirada, descartavel, detalhes, imagem, codigo_localizacao, codigo_classificacao) values (?,?,?,?,?,?,?,?,?,?)";
         try(PreparedStatement statement = connection.prepareStatement(sql)){
@@ -22,7 +27,7 @@ public class ProdutoDAO {
             statement.setString(5, produto.getUltimaRetirada());
             statement.setBoolean(6, produto.isDescartavel());
             statement.setString(7, produto.getDetalhes());
-            statement.setBlob(8, produto.getImagem());
+            statement.setString(8, produto.getImagem());
             statement.setInt(9, 222);
             statement.setInt(10, 222);
             try{

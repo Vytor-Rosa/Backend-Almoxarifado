@@ -10,6 +10,18 @@ public class Usuario {
     private String nome;
     private String cargo;
 
+    @Override
+    public String toString() {
+        return  "\n+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=\n" +
+                "idUsuario=" + idUsuario + "\n" +
+                "matricula=" + matricula + "\n" +
+                "email='" + email + "\n" +
+                "senha='" + senha + "\n" +
+                "nome='" + nome + "\n" +
+                "cargo='" + cargo +
+                "\n+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=\n";
+    }
+
     public static Usuario cadastrar(Integer idUsuario, Integer matricula, String email, String senha, String nome, String cargo){
         return new UsuarioFactory().getUsuario(idUsuario, matricula, email, senha, nome, cargo);
     }
