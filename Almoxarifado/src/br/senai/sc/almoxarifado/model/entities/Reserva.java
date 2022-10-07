@@ -12,6 +12,14 @@ public class Reserva {
         return new ReservaFactory().getReserva(idReserva, dataRetirada, dataDevolucao, idPessoa);
     }
 
+    @Override
+    public String toString() {
+        return "\nidReserva: " + idReserva +
+                "\ndataRetirada: " + dataRetirada +
+                "\ndataDevolucao: " + dataDevolucao +
+                "\nidPessoa: " + idPessoa;
+    }
+
     public Reserva(Integer idReserva, String dataRetirada, String dataDevolucao, Integer idPessoa) {
         this.idReserva = idReserva;
         this.dataRetirada = dataRetirada;

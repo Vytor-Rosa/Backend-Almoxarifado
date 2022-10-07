@@ -8,10 +8,12 @@ import java.util.Scanner;
 public class Main {
     static Scanner tec = new Scanner(System.in);
     public static void main(String[] args) throws SQLException {
-        buscarPorCargo();
+        buscarReservas();
     }
 
     static UsuarioController usuarioController = new UsuarioController();
+    static ProdutoController produtoController = new ProdutoController();
+    static ReservaController reservaController = new ReservaController();
 
     public static void cadastrarUsuario() throws SQLException {
         System.out.println("codigo: ");
@@ -68,8 +70,11 @@ public class Main {
         System.out.println("imagem: ");
         String imagem = tec.next();
 
-        ProdutoController controller = new ProdutoController();
-        controller.cadastrar(codigo, nome, caracteristica, quantidade, ultimaRetirada, descartavel, detalhes, imagem);
+        produtoController.cadastrar(codigo, nome, caracteristica, quantidade, ultimaRetirada, descartavel, detalhes, imagem);
+    }
+
+    public static void buscarProdutos() throws SQLException{
+        System.out.println(produtoController.buscarTodos());
     }
 
     public static void cadastrarClassificacao() throws SQLException {
@@ -102,8 +107,11 @@ public class Main {
         System.out.println("idPessoa: ");
         Integer idPessoa = tec.nextInt();
 
-        ReservaController controller = new ReservaController();
-        controller.cadastrar(codigo, dataRetirada, dataDevolucao, idPessoa);
+        reservaController.cadastrar(codigo, dataRetirada, dataDevolucao, idPessoa);
+    }
+
+    public static void buscarReservas() throws SQLException{
+        System.out.println(reservaController.buscarTodos());
     }
 
 }

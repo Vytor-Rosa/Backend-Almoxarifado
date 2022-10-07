@@ -29,6 +29,18 @@ public class Produto {
         this.imagem = imagem;
     }
 
+    @Override
+    public String toString() {
+        return "\nidProduto: " + idProduto +
+                "\nnome: " + nome +
+                "\ncaracteristica: " + caracteristica +
+                "\nquantidade: " + quantidade +
+                "\nultimaRetirada: " + ultimaRetirada +
+                "\ndescartavel: " + descartavel +
+                "\ndetalhes: " + detalhes +
+                "\nimagem: " + imagem + "\n";
+    }
+
     public Integer getIdProduto() {
         return idProduto;
     }

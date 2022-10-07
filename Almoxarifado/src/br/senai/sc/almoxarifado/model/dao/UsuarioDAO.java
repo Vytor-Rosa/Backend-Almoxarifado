@@ -47,7 +47,11 @@ public class UsuarioDAO {
                     listaUsuarios.add(extrairObjeto(resultSet));
                 }
                 return listaUsuarios;
+            }catch (Exception exception){
+                throw new RuntimeException("Erro na execução");
             }
+        }catch (Exception exception){
+            throw new RuntimeException("Erro na preparação");
         }
     }
 
@@ -60,7 +64,11 @@ public class UsuarioDAO {
                     listaProfessores.add(extrairObjeto(resultSet));
                 }
                 return listaProfessores;
+            }catch (Exception exception){
+                throw new RuntimeException("Erro na execução");
             }
+        }catch (Exception exception){
+            throw new RuntimeException("Erro na prearação");
         }
     }
 
