@@ -1,6 +1,6 @@
 import br.senai.sc.almoxarifado.controller.*;
 import br.senai.sc.almoxarifado.model.entities.Usuario;
- 
+
 import java.sql.Blob;
 import java.sql.SQLException;
 import java.util.Scanner;
